@@ -1,3 +1,4 @@
+//Done by Trina Ng
 public class User {
 	
 	private String name;
