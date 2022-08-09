@@ -7,13 +7,13 @@ public class User {
 	private String password;
 	private String status;
 	
-	public User(String name, String role, String email, int contactNumber, String password, String status) {
+	public User(String name, String role, String email, int contactNumber, String password) {
 		this.name = name;
 		this.role = role;
 		this.email = email;
 		this.contactNumber = contactNumber;
 		this.password = password;
-		this.status = status;
+		status = "New";
 	}
 
 	public String getName() {
@@ -59,9 +59,14 @@ public class User {
 	public String getStatus() {
 		return status;
 	}
-
-	public void setStatus(String status) {
+	
+	public void setStatus() {
 		this.status = status;
 	}
 	
+	public String toString(){
+		String output = String.format("%-10s %-20s %-20s %-17d %-20s %-10s", name, role, email, contactNumber, 
+				password, status);
+		return output;
+	}
 }
