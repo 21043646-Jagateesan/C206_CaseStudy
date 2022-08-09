@@ -31,12 +31,15 @@ public class UserTest {
 		assertSame(user1, customerList.get(0));
 		
 		//Test adding another item - normal
-		//and testing that the size of the list becomes 2
-		//the item just added is the same as second account in the list.
+		//and test that the item just added is the same as second account in the list.
 		UserMain.addUser(customerList, user2);
-		assertEquals(2, customerList.size());
 		assertSame(user2, customerList.get(1));
-	}
+		
+		//Given that a user was just added into the list
+		//test that the size of the list is 2 
+		//(test that the list size increases accordingly).
+		assertEquals(2, customerList.size());
+		}
 	
 	@Test
 	public void testRetrieveUser() {
@@ -77,7 +80,7 @@ public class UserTest {
 		
 		//Given 2 accounts have been added to the list
 		//test whether deleting an account will affect the customer list size accordingly
-		//(customer list size should decrease by 1).
+		//(customer list size should decrease by 1, so the list size should become 1)
 		customerList.remove(user2);
 		assertEquals(1, customerList.size());
 		
