@@ -52,8 +52,14 @@ public class QuotationLucas {
 				QuotationLucas.addQuotation(quotationList, qt);
 				
 			} else if (option == OPTION_DELETE) {
-				String Qid = Helper.readString("\nEnter quotation id > ");
+				String Qid = Helper.readString("Enter quotation id > ");
+				if (deleteQuotation(quotationList, Qid)) {
+					System.out.println("Quotation removed");
+				}else {
+					System.out.println("Error removing quotation with id " + Qid );
+				}
 				QuotationLucas.deleteQuotation(quotationList, Qid);
+				
 				
 			}else if (option == OPTION_QUIT) {
 				System.out.println("Thank You");
@@ -168,46 +174,17 @@ public class QuotationLucas {
 	}
 	
 	//delete
-	public static void deleteQuotation(ArrayList<Quotations> quotationList, String Qid) {
-		char confirmDelete = '\u0000';//default value
-		
-		if (QuotationLucas.testExists(quotationList, Qid)) {
-			
-			for(Quotations quotations : quotationList) {
-				
-				if(Qid.equals(quotations.getQID())) {
-					System.out.println(Qid.toString());
-					confirmDelete = Helper.readChar("Delete User Above?(y/n) > "); 
-				}
-				
-				if (confirmDelete == 'y') {
-					if(quotationList.equals(quotations.getQID())) {
-						quotationList.remove(Qid);
-						System.out.println("User has been deleted!");
-						break;
-					}
-				} else if (confirmDelete == 'n'){
-					System.out.println("Cancel delete!");
-					break;
-				}
+	public static boolean deleteQuotation(ArrayList<Quotations> quotationList, String Qid) {
+		int i = 0;
+		boolean removed = false;
+		while (i < quotationList.size()) {
+			if (quotationList.get(i).getQID().equalsIgnoreCase(Qid)) {
+				quotationList.remove(i);
+				removed = true;
 			}
-		} else {
-			System.out.println("User not found!");
+			i++;
 		}
+		return removed;
 	}
-	public static boolean testExists(ArrayList<Quotations> quotationList, String qID) {
-		boolean exist = false;
-		
-		for(int i = 0; i < quotationList.size(); i++) {
-			if (qID.equals(quotationList.get(i).getQID())){
-				exist = true;
-			}
-		}
-		
-		if (exist == true) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	
 }
