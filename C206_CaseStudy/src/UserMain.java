@@ -32,7 +32,6 @@ public class UserMain {
 				UserMain.setHeader("ADD USER ACCOUNT");
 				User user = inputUser();
 				UserMain.addUser(customerList, user);
-				System.out.println("User account added!");
 
 			} else if (option == OPTION_DELETE) {
 				UserMain.setHeader("DELTE USER ACCOUNT");
@@ -61,7 +60,30 @@ public class UserMain {
 		Helper.line(80, "-");
 	}
 	
-	// =================================== OPTION 1: ADD ============================================
+	// ================================== OPTION 1: VIEW ===========================================
+		public static String retrieveAllUser(ArrayList<User> customerList) {
+			String output = "";
+			
+			for (int i = 0; i < customerList.size(); i++) {
+				output += String.format("%-102s\n", customerList.get(i).toString());
+			}
+			
+			return output;
+		}
+		
+		public static void viewAllUser(ArrayList<User> customerList) {
+			if (customerList.size() > 0) {
+				UserMain.setHeader("CUSTOMER LIST");
+				String output = String.format("%-10s %-20s %-20s %-17s %-20s %-10s\n", "NAME", "ROLE",
+						"EMAIL", "CONTACT_NUMBER","PASSWORD", "STATUS");
+				 output += retrieveAllUser(customerList);	
+				System.out.println(output);
+			} else {
+				System.out.println("List is empty!");
+			}
+		}
+	
+	// =================================== OPTION 2: ADD ============================================
 	public static User inputUser() {
 		String name = Helper.readString("Enter name > ");
 		String role = Helper.readString("Enter role > ");
@@ -74,32 +96,14 @@ public class UserMain {
 	}
 	
 	public static void addUser(ArrayList<User> customerList, User user) {
-		customerList.add(user);
-	}
-	
-	// ================================== OPTION 2: VIEW ===========================================
-	public static String retrieveAllUser(ArrayList<User> customerList) {
-		String output = "";
-		
-		for (int i = 0; i < customerList.size(); i++) {
-			output += String.format("%-102s\n", customerList.get(i).toString());
-		}
-		
-		return output;
-	}
-	
-	public static void viewAllUser(ArrayList<User> customerList) {
-		if (customerList.size() > 0) {
-			UserMain.setHeader("CUSTOMER LIST");
-			String output = String.format("%-10s %-20s %-20s %-17s %-20s %-10s\n", "NAME", "ROLE",
-					"EMAIL", "CONTACT_NUMBER","PASSWORD", "STATUS");
-			 output += retrieveAllUser(customerList);	
-			System.out.println(output);
+		if (C206_CaseStudy.testExists(customerList, user.getName()) == false) {
+			customerList.add(user);
+			System.out.println("User account added!");
 		} else {
-			System.out.println("List is empty!");
+			System.out.println("User account already exists in list!");
 		}
 	}
-	
+		
 	// ================================== OPTION 3: DELETE ==========================================
 	public static void deleteUser(ArrayList<User> customerList) {
 		String inputName = Helper.readString("Enter name of user to delete > ");
@@ -111,7 +115,7 @@ public class UserMain {
 				
 				if(inputName.equals(user.getName())) {
 					System.out.println(user.toString());
-					confirmDelete = Helper.readChar("Delete User Above? > "); //match with user story with user story id 03
+					confirmDelete = Helper.readChar("Delete User Above? > "); //match with user story with7 user story id 03
 				}
 				
 				if (confirmDelete == 'y') {
