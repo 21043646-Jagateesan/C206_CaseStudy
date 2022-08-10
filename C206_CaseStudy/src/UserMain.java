@@ -96,7 +96,7 @@ public class UserMain {
 			 output += retrieveAllUser(customerList);	
 			System.out.println(output);
 		} else {
-			System.out.println("Message: There are currently no users!");
+			System.out.println("List is empty!");
 		}
 	}
 	
