@@ -13,7 +13,7 @@ public class QuoteRequests {
 	 private int NumToilet;
 	 private String UrgentReq;
 	 
-//Amani pull help jaga
+//Amani pull help jagaDo
 	 public QuoteRequests(String id, String propertyType, double area, String requestorName, int requestorNum, String requestorEmail,
 			 double budget, String completeDate, String renoType, String renoStyle, int NumRoom, int NumToilet,String UrgentReq) {
 	  this.id = id;
