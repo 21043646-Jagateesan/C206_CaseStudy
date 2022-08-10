@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList; 
-//lucass
+//lucasss
 public class Quotations {
 	private String requestID;
 	private String quotationID;

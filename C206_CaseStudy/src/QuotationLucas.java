@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-//lucas
+//lucass
 public class QuotationLucas {
 
 	
@@ -147,7 +147,7 @@ public class QuotationLucas {
 		return qt;
 	}
 	
-	//add
+	//addd
 	public static void addQuotation(ArrayList<Quotations> quotationList, Quotations qt) {
 		boolean add = false;
 		if(quotationList.size() == 0) {
