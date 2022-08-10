@@ -1,4 +1,5 @@
-	public class Quotation {
+//Amani
+public class Quotation {
 		private String id;
 		private double price;
 		private String customerid;
