@@ -69,10 +69,7 @@ public class Quoterequestmain {
 			
 		} while (mainchoice != 4);
 	}
-	
-	//Food no submenu cos its just viewing
-	
-	
+		
 	private void menu() {
 		System.out.println("1. Add Request");
 		System.out.println("2. View Request");
