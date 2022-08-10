@@ -1,4 +1,5 @@
 //Done by Trina Ng
+
 import java.util.ArrayList;
 
 public class UserMain {
@@ -95,7 +96,7 @@ public class UserMain {
 	}
 	
 	public static void addUser(ArrayList<User> customerList, User user) {
-		if (C206_CaseStudy.testExists(customerList, user.getName()) == false) {
+		if (UserMain.testExists(customerList, user.getName()) == false) {
 			customerList.add(user);
 			System.out.println("User account added!");
 		} else {
