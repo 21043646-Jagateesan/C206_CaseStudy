@@ -1,3 +1,4 @@
+//done by jaga
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -50,17 +51,17 @@ public class PackageTest {
 	}
 	@Test
 	public void testDeletePackage() {
-		// Test delete of existing building name in array list - Boundary Test
+		// Test delete of existing package code in array list - Boundary Test
 		int code = 1001;
 		boolean deleted = PackageMain.testDelete(code);
 		assertTrue(deleted);
 		
-		// Test delete for non-existent building in array list - Exceptional Test
+		// Test delete for non-existent package in array list - Exceptional Test
 		int code2 = 1002;
 		boolean deleted2 = PackageMain.testDelete(code2);
 		assertFalse(deleted2);
 		
-		// Test invalid input - empty string - Exceptional Test
+		// Test invalid input - empty integer - Exceptional Test
 		int code3 = 1003;
 		boolean deleted3 = PackageMain.testDelete(code3);
 		assertFalse(deleted3);
@@ -78,7 +79,7 @@ public class PackageTest {
         //Given an empty list, after adding 2 items, test if the size of the list is 2 - normal
         PackageMain.addPackage(pList, Package1);
         PackageMain.addPackage(pList, Package2);
-        assertEquals("Test that Package arraylist size is 2", 2, pList.size());
+        
 
         //test if the expected output string same as the list of package retrieved from the PackageMain  
         allPackages= PackageMain.retrieveAllPackage(pList);
