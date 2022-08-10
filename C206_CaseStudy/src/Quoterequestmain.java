@@ -67,7 +67,7 @@ public class Quoterequestmain {
 				}
 			}
 			
-		} while (mainchoice != 5);
+		} while (mainchoice != 4);
 	}
 	
 	//Food no submenu cos its just viewing
