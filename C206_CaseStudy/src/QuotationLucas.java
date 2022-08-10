@@ -43,7 +43,7 @@ public class QuotationLucas {
 			option = Helper.readInt("Enter choice - ");
 			
 			if (option == OPTION_VIEW) {
-				rId = Helper.readString("Enter request id - ");
+				
 				QuotationLucas.viewAllQuotation(quotationList);
 				
 				
